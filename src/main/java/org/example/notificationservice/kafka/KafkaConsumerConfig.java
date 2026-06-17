@@ -26,7 +26,7 @@ public class KafkaConsumerConfig {
                 new DeadLetterPublishingRecoverer(kafkaTemplate);
 
         FixedBackOff backOff = new FixedBackOff(5000L, 3L);
-        // 5 попыток с интервалом 3 секунды
+        // 3 попытки с интервалом 5 секунд
 
         DefaultErrorHandler handler = new DefaultErrorHandler(recoverer, backOff);
 

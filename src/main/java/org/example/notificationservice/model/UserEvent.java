@@ -3,14 +3,11 @@ package org.example.notificationservice.model;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class TaskStatusEvent extends Event {
+public class UserEvent extends Event {
 
-    private Long taskId;
-    private String status;
-    private Long userId;
-
+    private String username;
+    private String name;
 
 }

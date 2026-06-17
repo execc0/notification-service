@@ -20,11 +20,11 @@ public class TaskStatusConsumer {
         this.objectMapper = objectMapper;
     }
 
-    @KafkaListener(topics = "task-status-changed", groupId = "notification-group")
+    @KafkaListener(topics = "task-status-changed", groupId = "notification-status-group")
     public void onStatusChange(String message) throws JsonProcessingException {
         log.info("Получено сообщение из Kafka: {}", message);
         TaskStatusEvent event = objectMapper.readValue(message, TaskStatusEvent.class);
-        notificationService.sendNotification(event);
+        notificationService.sendNotificationStatusChange(event);
     }
 
 }
